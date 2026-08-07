@@ -10,7 +10,7 @@ Full architecture, cost guardrails, build plan, and open decisions live in `READ
 
 ## Hard constraint: this must cost $0
 
-This is a hobby project with no budget. Every architecture decision is chosen to stay inside always-free tiers (GitHub Models for LLM calls, Container Apps Consumption plan, `kind`/`minikube` for Kubernetes practice). Do not introduce anything that bills by default — see the cost guardrails table in `README.md` before adding infrastructure or switching LLM providers. Real AKS is the only paid resource, and only via the Azure free trial credit, torn down the same day it's used.
+This is a hobby project with no budget. Every architecture decision is chosen to stay inside always-free tiers (Gemini API free tier for LLM + embedding calls, Container Apps Consumption plan, `kind`/`minikube` for Kubernetes practice). Do not introduce anything that bills by default — see the cost guardrails table in `README.md` before adding infrastructure or switching LLM providers. Real AKS is the only paid resource, and only via the Azure free trial credit, torn down the same day it's used.
 
 ## Commands
 
@@ -38,8 +38,8 @@ Currently a single ASP.NET Core minimal API project, `src/AskMyResume.Api` (targ
 ```
 src/AskMyResume.Api    ASP.NET Core minimal API, one POST /chat endpoint
                         Semantic Kernel embeds resume/portfolio text, retrieves
-                        relevant chunks, calls an LLM via GitHub Models, returns
-                        an answer
+                        relevant chunks, calls an LLM via the Gemini API free
+                        tier, returns an answer
 
 infra/main.bicep        Container App, Container App Environment, Log Analytics
                          workspace, Key Vault (not yet created)
