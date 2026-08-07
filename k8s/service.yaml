@@ -1,0 +1,13 @@
+# ClusterIP is enough for local kind/minikube testing via
+# `kubectl port-forward svc/askmyresume 8080:80`.
+apiVersion: v1
+kind: Service
+metadata:
+  name: askmyresume
+spec:
+  type: ClusterIP
+  selector:
+    app: askmyresume
+  ports:
+    - port: 80
+      targetPort: 8080

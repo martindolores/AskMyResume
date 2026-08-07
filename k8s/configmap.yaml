@@ -1,0 +1,11 @@
+# Non-secret app configuration for AskMyResume, mirroring the "Gemini"
+# section of appsettings.json. ASP.NET Core binds double-underscore env vars
+# to nested config sections, so Gemini__Endpoint maps to Gemini:Endpoint.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: askmyresume-config
+data:
+  Gemini__Endpoint: "https://generativelanguage.googleapis.com/v1beta/openai/"
+  Gemini__EmbeddingModel: "gemini-embedding-001"
+  Gemini__ChatModel: "gemini-flash-latest"

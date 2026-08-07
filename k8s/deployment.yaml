@@ -1,0 +1,52 @@
+# Deploys the same container image as infra/main.bicep's Container App.
+# GEMINI_API_KEY is deliberately not defined here — create it out-of-band
+# before applying, mirroring the Key Vault secret in the Bicep path:
+#   kubectl create secret generic askmyresume-secrets \
+#     --from-literal=GEMINI_API_KEY=<your-key>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: askmyresume
+  labels:
+    app: askmyresume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: askmyresume
+  template:
+    metadata:
+      labels:
+        app: askmyresume
+    spec:
+      containers:
+        - name: askmyresume
+          image: ghcr.io/martindolores/askmyresume:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: askmyresume-config
+          env:
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: askmyresume-secrets
+                  key: GEMINI_API_KEY
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "250m"
+              memory: "512Mi"
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 20
