@@ -18,11 +18,18 @@ This is a hobby project with no budget. Every architecture decision is chosen to
 # build
 dotnet build
 
+# run tests
+dotnet test
+
 # run the API locally (from repo root)
 dotnet run --project src/AskMyResume.Api
 ```
 
-There is no test project yet — none has been scaffolded as of this writing.
+Tests live in `tests/AskMyResume.Api.Tests` (xUnit), referencing `src/AskMyResume.Api`.
+
+## Test-driven development
+
+Write code in this repo TDD-style: write a failing test first, then the minimum code to pass it, then refactor. This applies to logic worth unit testing — chunking, retrieval/similarity scoring, request/response shaping, anything with edge cases or branching. It doesn't apply to pure scaffolding (Bicep, Dockerfile, k8s manifests, CI YAML) — verify those by running them, not by writing tests around them.
 
 ## Architecture
 

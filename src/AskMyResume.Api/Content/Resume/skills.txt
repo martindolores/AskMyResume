@@ -1,0 +1,17 @@
+Martin Dolores — Technical Skills
+
+Languages: C#, TypeScript, JavaScript, Python, SQL, Delphi, Sass, CSS, HTML.
+
+Frameworks: ASP.NET Core, .NET, React, MUI, NHibernate, MediatR, Capacitor, Xamarin, Bootstrap.
+
+Testing: NUnit, Playwright.
+
+Version Control: Git, GitHub.
+
+Database: SQL Server (SSMS), MySQL, NexusDB.
+
+Cloud & CI/CD: Azure (Functions, Entra ID, DevOps Pipelines), Docker, GitHub Actions, Node.js (npm/build tooling).
+
+AI Tools: Claude Code (agentic workflows), GitHub Copilot.
+
+Other: GraphQL, REST APIs.

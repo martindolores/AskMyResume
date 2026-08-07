@@ -1,0 +1,3 @@
+Martin Dolores — Summary
+
+Full-stack software engineer with 4+ years building React/TypeScript frontends and C#/.NET backends, with hands-on experience directing agentic AI coding tools (Claude Code) to accelerate delivery. Sole architect for an end-to-end mobile application at Interfi Systems, with a track record of measurable delivery wins: cut a client integration's response time from ~15 minutes to seconds, and halved CI runtime through test sharding. Comfortable owning features end-to-end, from design through code review and production support, in agile teams.

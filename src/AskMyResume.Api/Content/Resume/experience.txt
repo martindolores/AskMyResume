@@ -1,0 +1,29 @@
+Software Developer at Interfi Systems (Geelong, Vic), June 2023 -- Present.
+
+Software Developer at Interfi Systems: Build and maintain a TypeScript/React/MUI frontend and ASP.NET Core C# backend for a loan management platform, directing agentic AI coding tools end-to-end.
+
+Software Developer at Interfi Systems: Apply dependency injection and MediatR to design decoupled, testable API endpoints, with NHibernate handling SQL Server entity persistence.
+
+Software Developer at Interfi Systems: Led mobile application development as sole architect, making stack and structural decisions using Capacitor and shipping features end-to-end.
+
+Software Developer at Interfi Systems: Write NUnit unit tests and Playwright end-to-end tests, and conduct pull request reviews -- including critical review of AI-generated code -- to catch regressions before they reach production.
+
+Software Developer at Interfi Systems: Sharded Playwright end-to-end test execution to cut CI runtime 50% (~20 to ~10 minutes); built and maintain GitHub Actions CI/CD pipelines covering automated test runs, code formatting checks, and secret-leak scanning.
+
+Software Developer at Interfi Systems: Re-architected a synchronous client integration into a background job using direct SQL queries in place of ORM-managed calls, cutting processing time from ~15 minutes to seconds; design and ship third-party API integrations server-side and provide live technical support to integrating clients.
+
+Software Developer at Interfi Systems: Provisioned Azure Functions and configured Entra ID authentication for a cloud-hosted feature, and built Azure DevOps pipelines to automate builds and deployments to QA environments.
+
+Software Engineer at Retail Directions (Melbourne, Vic), May 2022 -- June 2023.
+
+Software Engineer at Retail Directions: Maintained and extended production POS systems for retail clients in an agile team, delivering iterative improvements against a live production codebase using Delphi.
+
+Software Engineer at Retail Directions: Enhanced a Data Replication Service that synchronised transaction data between stores and head office, improving reliability across the data pipeline.
+
+Software Engineer at Retail Directions: Built and maintained Xamarin/C# mobile applications providing client-side access to POS systems across multiple retail deployments.
+
+Software Engineer at Retail Directions: Produced design artefacts (mockups, class diagrams, and flow diagrams in Microsoft Visio) to align engineering and product stakeholders before implementation.
+
+Account Manager at Deltone Solutions (Clayton South, Vic), March 2021 -- May 2022.
+
+Account Manager at Deltone Solutions: Managed a portfolio of client accounts through outbound prospecting and relationship management, consistently meeting monthly KPI targets.
