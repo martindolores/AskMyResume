@@ -1,6 +1,4 @@
-# Ask My Resume — Project Handover
-
-## What this is
+# Ask My Resume
 
 A small RAG (retrieval-augmented generation) chatbot that answers questions about Martin's own experience, by retrieving relevant chunks from his resume/portfolio content and feeding them to an LLM. The point isn't the chatbot itself — it's a vehicle to genuinely learn and be able to defend, in a job interview, four skills identified as missing from his CV:
 
@@ -9,11 +7,11 @@ A small RAG (retrieval-augmented generation) chatbot that answers questions abou
 - **Applied AI development** (Semantic Kernel, RAG) — not just using AI coding assistants, but building AI features
 - **Kubernetes** (stretch goal, via local `kind`/`minikube` + one short AKS excursion)
 
-This file exists so work can pick back up cleanly after a break, or so a fresh Claude Code session has full context without re-deriving it.
+Work is tracked as issues on the [AskMyResume project board](https://github.com/users/martindolores/projects/2), one issue per PR-sized chunk (PR-0 through PR-12).
 
 ## Hard constraint: this must cost $0
 
-This is a hobby project with no budget. Every architecture decision below was chosen specifically to stay inside always-free tiers. **Do not deviate from the cost guardrails in this doc without re-checking current Azure pricing** — free tier terms change.
+This is a hobby project with no budget. Every architecture decision below was chosen specifically to stay inside always-free tiers. **Do not deviate from the cost guardrails below without re-checking current Azure pricing** — free tier terms change.
 
 ### Cost guardrails (read before provisioning anything)
 
@@ -57,6 +55,12 @@ GitHub repo
 - **Semantic Kernel over LangChain**: Microsoft's own SDK, integrates naturally with C#, and lines up with the AI-200 (Azure AI Cloud Developer Associate) certification direction discussed separately.
 - **Container Apps over raw AKS as the primary host**: AKS costs money to run continuously; Container Apps gives the "containerized app running in Azure, deployed via IaC" story for $0, which is 90% of the interview-relevant substance.
 - **GitHub Models instead of Azure OpenAI**: same Semantic Kernel code path, zero cost, swappable later if a paid Azure OpenAI resource is ever justified.
+
+## Running locally
+
+```bash
+dotnet run --project src/AskMyResume.Api
+```
 
 ## Build plan
 
