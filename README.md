@@ -1,6 +1,6 @@
 # Ask My Resume
 
-A small RAG (retrieval-augmented generation) chatbot that answers questions about Martin's own experience, by retrieving relevant chunks from his resume/portfolio content and feeding them to an LLM. The point isn't the chatbot itself — it's a vehicle to genuinely learn and be able to defend, in a job interview, four skills identified as missing from his CV:
+A small RAG (retrieval-augmented generation) chatbot that answers questions about a resume/portfolio, by retrieving relevant chunks from the underlying content and feeding them to an LLM. The point isn't the chatbot itself — it's a vehicle to genuinely learn and be able to defend, in a job interview, four target skills:
 
 - **Bicep** (Azure infrastructure-as-code)
 - **Containers on Azure** (Container Apps, optionally AKS)
@@ -9,11 +9,9 @@ A small RAG (retrieval-augmented generation) chatbot that answers questions abou
 
 Work is tracked as issues on the [AskMyResume project board](https://github.com/users/martindolores/projects/2), one issue per PR-sized chunk (PR-0 through PR-12).
 
-## Hard constraint: this must cost $0
+## Cost guardrails (read before provisioning anything)
 
-This is a hobby project with no budget. Every architecture decision below was chosen specifically to stay inside always-free tiers. **Do not deviate from the cost guardrails below without re-checking current Azure pricing** — free tier terms change.
-
-### Cost guardrails (read before provisioning anything)
+This is a hobby project with no budget. Every architecture decision below was chosen specifically to stay inside always-free tiers. **Do not deviate from the guardrails below without re-checking current Azure pricing** — free tier terms change.
 
 | Resource | Why it's free | Guardrail |
 |---|---|---|
@@ -51,7 +49,7 @@ GitHub repo
 ```
 
 ### Why these choices specifically
-- **ASP.NET Core**: already Martin's daily stack (Interfi) — no new language to learn, keeps focus on the infra/AI skills that are actually new.
+- **ASP.NET Core**: already the primary daily stack — no new language to learn, keeps focus on the infra/AI skills that are actually new.
 - **Semantic Kernel over LangChain**: Microsoft's own SDK, integrates naturally with C#, and lines up with the AI-200 (Azure AI Cloud Developer Associate) certification direction discussed separately.
 - **Container Apps over raw AKS as the primary host**: AKS costs money to run continuously; Container Apps gives the "containerized app running in Azure, deployed via IaC" story for $0, which is 90% of the interview-relevant substance.
 - **GitHub Models instead of Azure OpenAI**: same Semantic Kernel code path, zero cost, swappable later if a paid Azure OpenAI resource is ever justified.
@@ -72,7 +70,7 @@ dotnet run --project src/AskMyResume.Api
 5. Write `infra/main.bicep` defining Container App + Container App Environment + Log Analytics + Key Vault.
 6. Deploy manually once via `az deployment group create -f infra/main.bicep` to confirm it works.
 7. Write the GitHub Actions workflow to build, push to GHCR, and re-run the Bicep deployment on push to main.
-8. **Done when:** the chatbot is reachable at a public Container Apps URL, answers questions about Martin's resume correctly, and the whole deploy is reproducible from a clean Azure subscription by running the pipeline.
+8. **Done when:** the chatbot is reachable at a public Container Apps URL, answers resume/portfolio questions correctly, and the whole deploy is reproducible from a clean Azure subscription by running the pipeline.
 
 ### Milestone 2 — Stretch: Kubernetes
 1. Write `k8s/deployment.yaml`, `service.yaml`, `configmap.yaml` for the same container.
@@ -83,7 +81,7 @@ dotnet run --project src/AskMyResume.Api
 
 ## Definition of "resume-worthy"
 
-Before listing Bicep / Kubernetes / applied-AI as skills off the back of this project, Martin should be able to, without notes:
+Before listing Bicep / Kubernetes / applied-AI as skills off the back of this project, it should be possible to, without notes:
 - Explain why Container Apps was chosen over AKS for the primary deployment (cost/complexity trade-off)
 - Walk through what the Bicep file provisions and why each resource is there
 - Explain how the RAG retrieval works (embeddings, similarity search, why chunking matters)
